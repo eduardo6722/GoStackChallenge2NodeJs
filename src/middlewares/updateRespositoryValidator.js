@@ -12,9 +12,9 @@ module.exports = async (req, res, next) => {
   }
 
   const respositorySchema = Yup.object().shape({
-    title: Yup.string().required(),
-    url: Yup.string().url().required(),
-    techs: Yup.array().of(Yup.string()).required(),
+    title: Yup.string().nullable(),
+    url: Yup.string().url().nullable(),
+    techs: Yup.array().of(Yup.string()).nullable(),
   });
 
   await respositorySchema.validate(req.body).catch((err) => {
